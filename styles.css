@@ -82,6 +82,8 @@ form {
 
 /* INPUT STYLES */
 input {
+  -webkit-appearance: none;
+  appearance: none;
   /* Input box styles */
   display: block;
   width: 100%;
@@ -97,6 +99,9 @@ input {
   padding: 1.2rem 0 1.2rem 3.2rem;
   line-height: 1.8rem;
   color: var(--input-color);
+
+  animation-name: animate__lightSpeedInLeft;
+  animation-duration: 500ms;
 }
 
 input:focus {
@@ -124,29 +129,16 @@ input:focus {
   color: var(--input-color);
 }
 
-form small {
+.error-msg {
   font-style: italic;
   font-size: 1rem;
   line-height: 2rem;
   letter-spacing: 0.013rem;
   color: var(--invalid);
+}
+
+.error {
   border-color: var(--invalid);
-}
-
-/* Only show invalid border while not focused */
-input:not(:focus):not(:placeholder-shown):invalid {
-  border-color: var(--invalid);
-}
-
-/* this prevents the invalid style from being applied until text is entered and focus moves to another element. */
-input:not(:focus):not(:placeholder-shown):invalid ~ small {
-  display: block;
-}
-
-/* Only show valid border while not focused and if a value is entered */
-input:not(:focus):not(:placeholder-shown):valid {
-  border-color: lightseagreen;
-  color: var(--blue);
 }
 
 .hidden {
@@ -180,6 +172,9 @@ button {
   box-shadow: 0px 5px 10px 2px rgba(76, 123, 243, 0.230414);
   cursor: pointer;
   transition: 220ms all ease-in-out;
+
+  animation-name: animate__lightSpeedInRight;
+  animation-duration: 500ms;
 }
 
 /* Button state styles */
