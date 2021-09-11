@@ -1,0 +1,320 @@
+:root {
+  --blue: hsl(223, 87%, 63%);
+  --pale-blue: hsl(223, 100%, 88%);
+  --invalid: hsl(354, 100%, 66%);
+  --gray: hsl(0, 0%, 59%);
+  --very-dark-blue: hsl(210, 32%, 12%);
+  --input-color: hsl(223, 60%, 83%);
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Libre Franklin', 'Lucida Grande', sans-serif;
+  font-size: 2rem;
+  text-align: center;
+  height: 100%;
+  overflow: auto;
+}
+
+.site {
+  margin: 0 auto;
+  max-width: 37.5rem;
+}
+
+header {
+  padding-top: 8.1rem;
+}
+
+.logo {
+  width: 5.6rem;
+  margin-bottom: 3.2rem;
+}
+
+h1 {
+  font-weight: 400;
+  font-size: 2.2rem;
+  line-height: 3.2rem;
+  color: var(--gray);
+  margin-bottom: 1.5rem;
+}
+
+h1 span {
+  font-weight: 700;
+  color: var(--very-dark-blue);
+}
+
+header p {
+  font-weight: 300;
+  font-size: 1.2rem;
+  line-height: 1.454rem;
+  color: var(--very-dark-blue);
+  margin-bottom: 3.2rem;
+}
+
+form {
+  max-width: 28.1rem;
+  margin: 0 auto 7.2rem auto;
+}
+
+/* Visually hides label but retains it for assistive technologies */
+.visually-hidden {
+  border-width: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  white-space: nowrap !important;
+  width: 1px !important;
+}
+
+/* INPUT STYLES */
+input {
+  /* Input box styles */
+  display: block;
+  width: 100%;
+  border: 1px solid var(--pale-blue);
+  border-radius: 2.8rem;
+  box-shadow: 0px 0px 7px 3px rgba(0, 0, 0, 0.0001);
+  transition: all 300ms ease-in-out;
+  margin-bottom: 0;
+
+  /* Input text styles */
+  font-family: 'Libre Franklin', 'Lucida Grande', sans-serif;
+  font-size: 1.2rem;
+  padding: 1.2rem 0 1.2rem 3.2rem;
+  line-height: 1.8rem;
+  color: var(--input-color);
+}
+
+input:focus {
+  box-shadow: 0 0 0 2px rgba(79, 125, 243, 0.4);
+  transform: scale(1.02);
+  /* Windows High Contrast mode does NOT see the box-shadow or detect the border color change, hence  a transparent outline for those users: */
+  outline: 2px solid transparent;
+}
+
+/* Input placeholder styling for different browsers: */
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: var(--input-color);
+}
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: var(--input-color);
+}
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: var(--input-color);
+}
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: var(--input-color);
+}
+
+form small {
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 2rem;
+  letter-spacing: 0.013rem;
+  color: var(--invalid);
+  border-color: var(--invalid);
+}
+
+/* Only show invalid border while not focused */
+input:not(:focus):not(:placeholder-shown):invalid {
+  border-color: var(--invalid);
+}
+
+/* this prevents the invalid style from being applied until text is entered and focus moves to another element. */
+input:not(:focus):not(:placeholder-shown):invalid ~ small {
+  display: block;
+}
+
+/* Only show valid border while not focused and if a value is entered */
+input:not(:focus):not(:placeholder-shown):valid {
+  border-color: lightseagreen;
+  color: var(--blue);
+}
+
+.hidden {
+  display: none;
+}
+
+/* BUTTON STYLES */
+button {
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: white;
+  padding: 1.2em 0;
+  margin-top: 2rem;
+  line-height: 1.2rem;
+
+  /* Min-width ensures visual rhythm in case there'll be another button in future */
+  min-width: 10ch;
+
+  /* The min-height is based on ensuring the button is a large enough target on touch devices to meet the WCAG 2.1 success criteria for 2.5.5 - Target Size. */
+  min-height: 4.4rem;
+
+  /* Button box styles */
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: var(--blue);
+  border: none;
+  border-radius: 2.8rem;
+  box-shadow: 0px 5px 10px 2px rgba(76, 123, 243, 0.230414);
+  cursor: pointer;
+  transition: 220ms all ease-in-out;
+}
+
+/* Button state styles */
+button:hover,
+button:active {
+  background-color: hsl(223, 75%, 53%);
+}
+
+button:focus {
+  outline-style: solid;
+  outline-color: transparent;
+  box-shadow: 0 0 0 4px hsl(230, 67%, 53%);
+}
+
+.dashboard {
+  padding: 0 2.7rem;
+  margin-bottom: 12rem;
+}
+
+.dashboard img {
+  max-width: 100%;
+}
+
+.social-links {
+  padding-left: 0;
+  margin-bottom: 2.7rem;
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer li:not(:last-child) {
+  margin-right: 1.171rem;
+}
+
+.social-links i {
+  color: var(--blue);
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  transition: all 200ms ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.918357px solid rgba(76, 123, 243, 0.146498);
+}
+
+.social-links a {
+  text-decoration: none;
+}
+
+.social-links i:hover,
+.social-links i:active {
+  opacity: 0.8;
+  border-radius: 0;
+  transform: scale(0.99);
+}
+
+footer small {
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.212rem;
+  color: var(--gray);
+  margin-bottom: 3.7rem;
+}
+
+@media (min-width: 768px) {
+  .site {
+    margin: 0 auto;
+    max-width: 64rem;
+  }
+
+  header {
+    padding-top: 8rem;
+  }
+
+  .logo {
+    width: 9rem;
+    margin-bottom: 4rem;
+  }
+
+  h1 {
+    font-size: 4.8rem;
+    line-height: 6rem;
+    margin-bottom: 1.6rem;
+  }
+
+  header p {
+    font-size: 2rem;
+    line-height: 2.424rem;
+    margin-bottom: 4rem;
+  }
+
+  form {
+    max-width: 63.7rem;
+    margin-bottom: 9.4rem;
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  /* INPUT STYLES */
+  input {
+    flex: 1 0 50%;
+    margin-bottom: 0;
+    font-size: 1.6rem;
+    padding: 1.8rem 0 1.8rem 3rem;
+    margin-right: 1.6rem;
+    order: 1;
+    height: 58px;
+  }
+
+  input::placeholder {
+    padding: 0;
+    margin: 0;
+  }
+
+  /* BUTTON STYLES */
+  button {
+    flex: 0 1 35%;
+    display: inline-block;
+    font-size: 1.6rem;
+    line-height: 1.96rem;
+    order: 2;
+    margin: 0;
+  }
+
+  form small {
+    order: 3;
+    padding-left: 3rem;
+  }
+
+  .dashboard {
+    padding: 0;
+    margin-bottom: 7.2rem;
+  }
+}
