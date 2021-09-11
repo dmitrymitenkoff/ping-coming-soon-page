@@ -5,7 +5,8 @@ const errorMessage = document.querySelector('.error-msg');
 function showError() {
   if (email.validity.valueMissing) {
     // If the field is empty, display the following error message.
-    errorMessage.textContent = 'Please provide an email address';
+    errorMessage.textContent =
+      'Whoops! It looks like you forgot to add your email';
     email.classList.add('error');
   } else if (email.validity.typeMismatch) {
     // If the field doesn't contain an email address, display the following error message.
